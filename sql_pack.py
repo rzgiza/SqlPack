@@ -70,10 +70,10 @@ class MsqlPack():
         colnames = self.custom(
             "information_schema", 
             colnames=
-            """
-            SELECT COLUMN_NAME
-            FROM COLUMNS
-            WHERE TABLE_SCHEMA = """ + data_base + " AND TABLE_NAME = " + table)
+                """
+                SELECT COLUMN_NAME
+                FROM COLUMNS
+                WHERE TABLE_SCHEMA = """ + data_base + " AND TABLE_NAME = " + table)
         return colnames['colnames']
 
     def query_tables(self, data_base, *tables):
