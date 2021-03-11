@@ -22,7 +22,7 @@ class MsqlConnection():
             user = self.user, 
             password = self.password, 
             use_pure = self.use_pure
-            )
+        )
         self.curs = self.conn.cursor()
         print("Connection Opened\n")
         return self.conn, self.curs
@@ -40,8 +40,10 @@ class MsqlPack():
         """Pass MsqlConnection object. All connections are handled using 
         with statements."""
         if msql_connection is None:
-            print("Warning: No MsqlConnection has been passed. Only the save "\
-                  "and load methods are functional.")
+            print(
+                "Warning: No MsqlConnection has been passed. Only the save "
+                "and load methods are functional."
+            )
         else:
             self.msql_connection = msql_connection
         
@@ -73,7 +75,9 @@ class MsqlPack():
                 """
                 SELECT COLUMN_NAME
                 FROM COLUMNS
-                WHERE TABLE_SCHEMA = """ + data_base + " AND TABLE_NAME = " + table)
+                WHERE TABLE_SCHEMA = 
+                """ + data_base + " AND TABLE_NAME = " + table
+        )
         return colnames['colnames']
 
     def query_tables(self, data_base, *tables):
@@ -134,8 +138,10 @@ class MsqlPack():
                         print("Query " + name + " has been executed.")
                 data_dict["queries"] = queries
             if query_error is True:
-                print("\nAn error has occured in retrieving at least one"\
-                      " select query.")
+                print(
+                    "\nAn error has occured in retrieving at least one"
+                    " select query."
+                )
             return data_dict
     
     @staticmethod
